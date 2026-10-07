@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#07050d">
+  <meta name="description" content="An interactive cinematic birthday surprise.">
+  <title>Birthday Surprise</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       LOADING SCREEN
+  ========================================================== -->
+
+  <div id="loadingScreen" class="loading-screen">
+
+    <div class="loading-aura"></div>
+
+    <div class="loader-content">
+
+      <div class="loader-kicker">
+        A little birthday universe
+      </div>
+
+      <h1>
+        Preparing something special
+        <span class="dots">...</span>
+      </h1>
+
+      <div class="progress-wrap">
+        <div id="loadBar" class="progress-bar"></div>
+      </div>
+
+      <div id="loadPercent" class="load-percent">
+        0%
+      </div>
+
+      <div id="readyText" class="ready-text"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       VISUAL EFFECTS
+  ========================================================== -->
+
+  <canvas
+    id="vfxCanvas"
+    aria-hidden="true"
+  ></canvas>
+
+  <div
+    id="grain"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    id="cursorGlow"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    id="cursorDot"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- =========================================================
+       TOP BUTTONS
+  ========================================================== -->
+
+  <button
+    id="musicToggle"
+    class="music-toggle glass"
+    type="button"
+    aria-label="Turn on the magic"
+  >
+    🎵 TURN ON THE MAGIC
+  </button>
+
+
+  <button
+    id="customizeToggle"
+    class="customize-toggle glass"
+    type="button"
+  >
+    ⚙ Customize Memories
+  </button>
+
+
+  <!-- =========================================================
+       CHAPTER NAVIGATION
+  ========================================================== -->
+
+  <aside
+    id="chapterNav"
+    class="chapter-nav"
+    aria-label="Birthday chapters"
+  ></aside>
+
+
+  <!-- =========================================================
+       MAIN EXPERIENCE
+  ========================================================== -->
+
+  <main
+    id="experience"
+    class="experience locked"
+  >
+
+
+    <!-- =======================================================
+         CHAPTER 0 — HERO
+    ======================================================== -->
+
+    <section
+      id="chapter0"
+      class="chapter hero-chapter"
+      data-chapter="0"
+    >
+
+      <div class="hero-stars"></div>
+
+      <div class="hero-content">
+
+        <p class="eyebrow reveal">
+          A tiny secret is waiting...
+        </p>
+
+        <h1 class="hero-title reveal">
+
+          <span>
+            Today is  
+          </span>
+
+          <em>
+            a special Day
+          </em>
+
+        </h1>
+
+        <p class="hero-sub reveal">
+          Scroll slowly. There is something I want you to remember.
+        </p>
+
+        <div class="scroll-cue reveal">
+
+          <span></span>
+
+          <b>
+            SCROLL TO ENTER
+          </b>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CHAPTER 1 — FIRST PHOTO
+    ======================================================== -->
+
+    <section
+      id="chapter1"
+      class="chapter intro-photo-chapter"
+      data-chapter="1"
+    >
+
+      <div class="section-inner split">
+
+        <div class="copy">
+
+          <p class="eyebrow">
+            Chapter I · The beginning
+          </p>
+
+          <h2>
+            This is for 
+            <em>love 💗</em>
+          </h2>
+
+          <p class="lead">
+            Some memories don't need an explanation.
+            They just need a moment.
+          </p>
+
+        </div>
+
+
+        <div class="photo-stage">
+
+          <div
+            class="photo-slot cinematic-slot"
+            data-photo-index="0"
+            data-placeholder="PHOTO 01"
+          >
+
+            <img
+              alt="Memory 01"
+              loading="lazy"
+            >
+
+            <div class="slot-placeholder">
+
+              <span class="camera-icon">
+                ◉
+              </span>
+
+              <strong>
+                YOUR PHOTO HERE
+              </strong>
+
+              <small>
+                Replace with your photo · PHOTO 01
+              </small>
+
+            </div>
+
+            <div class="scan-line"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CHAPTER 2 — FLOATING PHOTO
+    ======================================================== -->
+
+    <section
+      id="chapter2"
+      class="chapter floating-photo-chapter"
+      data-chapter="2"
+    >
+
+      <div class="ambient-orb orb-a"></div>
+
+      <div class="ambient-orb orb-b"></div>
+
+      <div class="section-inner centered">
+
+        <p class="eyebrow">
+          Chapter II · A moment
+        </p>
+
+        <h2>
+          Dedicating for 
+          <em>my madam jii.</em>
+        </h2>
+
+        <div class="floating-memory-wrap">
+
+          <div
+            class="photo-slot floating-slot"
+            data-photo-index="1"
+            data-placeholder="PHOTO 02"
+          >
+
+            <img
+              alt="Memory 02"
+              loading="lazy"
+            >
+
+            <div class="slot-placeholder">
+
+              <span class="camera-icon">
+                ◉
+              </span>
+
+              <strong>
+                YOUR PHOTO HERE
+              </strong>
+
+              <small>
+                Replace with your photo · PHOTO 02
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="floating-caption">
+          Move your pointer. Touch and tilt the memory.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CHAPTER 3 — PHOTO GALLERY
+    ======================================================== -->
+
+    <section
+      id="chapter3"
+      class="chapter gallery-chapter"
+      data-chapter="3"
+    >
+
+      <div class="section-inner">
+
+        <p class="eyebrow">
+          Chapter III · The archive
+        </p>
+
+        <h2>
+          My little
+          <em>museum 🫠.</em>
+        </h2>
+
+        <p class="lead">
+          Eight empty frames. Eight future memories.
+          Replace the files in
+          <code>assets/photos/</code>
+          and they appear automatically.
+        </p>
+
+        <div
+          id="memoryGallery"
+          class="memory-gallery"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CHAPTER 4 — COLLAGE
+    ======================================================== -->
+
+    <section
+      id="chapter4"
+      class="chapter collage-chapter"
+      data-chapter="4"
+    >
+
+      <div class="section-inner">
+
+        <p class="eyebrow">
+          Chapter IV · Pieces of us
+        </p>
+
+        <h2>
+          Every time seeing you is
+          <em>special for me always. ❤️</em>
+        </h2>
+
+        <div
+          id="collage"
+          class="collage"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CHAPTER 5 — BIRTHDAY REVEAL
+    ======================================================== -->
+
+    <section
+      id="chapter5"
+      class="chapter reveal-chapter"
+      data-chapter="5"
+    >
+
+      <div class="reveal-stage">
+
+        <div
+          id="revealLine1"
+          class="reveal-line"
+        >
+          There's someone I need to celebrate today...
+        </div>
+
+        <div
+          id="revealLine2"
+          class="reveal-line"
+        >
+          And that someone is...
+        </div>
+
+        <h2
+          id="birthdayName"
+          class="birthday-name"
+          tabindex="0"
+        >
+          MOUNIKA
+        </h2>
+
+        <h3
+          id="birthdayTitle"
+          class="birthday-title"
+        >
+          HAPPY BIRTHDAY
+          <span>❤️</span>
+        </h3>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CHAPTER 6 — GIFT
+    ======================================================== -->
+
+    <section
+      id="chapter6"
+      class="chapter gift-chapter"
+      data-chapter="6"
+    >
+
+      <div class="section-inner centered">
+
+        <p class="eyebrow">
+          Chapter V · One more thing
+        </p>
+
+        <h2>
+          I have
+          <em>one more surprise...</em>
+        </h2>
+
+        <button
+          id="giftButton"
+          class="gift-wrap"
+          type="button"
+          aria-label="Open the birthday gift"
+        >
+
+          <span class="gift-aura"></span>
+
+          <span class="gift-box">
+            <i></i>
+            <b></b>
+          </span>
+
+          <span class="gift-ribbon"></span>
+
+          <span class="gift-lid"></span>
+
+        </button>
+
+        <p
+          id="giftHint"
+          class="gift-hint"
+        >
+          Tap the gift.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CHAPTER 7 — HEARTFELT MESSAGE
+    ======================================================== -->
+
+    <section
+      id="chapter7"
+      class="chapter message-chapter"
+      data-chapter="7"
+    >
+
+      <div class="message-card">
+
+        <p class="eyebrow">
+          Chapter VI · Jokes apart...
+        </p>
+
+        <div
+          id="heartfeltMessage"
+          class="heartfelt-message"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CHAPTER 8 — SECRET
+    ======================================================== -->
+
+    <section
+      id="chapter8"
+      class="chapter secret-chapter"
+      data-chapter="8"
+    >
+
+      <div class="secret-stage">
+
+        <p class="eyebrow">
+          One last thing
+        </p>
+
+        <h2>
+          Wait<span>...</span>
+        </h2>
+
+        <p id="secretPrompt">
+          I saved one last surprise.
+        </p>
+
+        <button
+          id="secretButton"
+          class="magic-button"
+          type="button"
+        >
+          OPEN THE SECRET ❤️
+        </button>
+
+        <div
+          id="secretName"
+          class="secret-name"
+        ></div>
+
+        <div
+          id="secretFinal"
+          class="secret-final"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+
+
+
+
+<section class="chapter love-letter-chapter" id="chapter9" data-chapter="9">
+
+  <div class="love-letter-wrapper">
+
+    <!-- CLOSED LETTER -->
+    <button class="love-letter-envelope" id="loveLetterOpen" type="button">
+
+      <div class="envelope-glow"></div>
+
+      <div class="envelope">
+        <div class="envelope-back"></div>
+
+        <div class="envelope-paper">
+          <div class="paper-lines"></div>
+          <span class="paper-heart">❤️</span>
+          <strong>LOVE LETTER</strong>
+          <small>For my Bangaram</small>
+        </div>
+
+        <div class="envelope-front"></div>
+
+        <div class="envelope-flap"></div>
+
+        <div class="envelope-seal">
+          ❤️
+        </div>
+      </div>
+
+      <div class="letter-open-hint">
+        <span>Tap to open</span>
+        <b>✦</b>
+      </div>
+
+    </button>
+
+  </div>
+
+  <!-- FULL SCREEN LETTER -->
+  <div class="love-letter-fullscreen" id="loveLetterFullscreen" aria-hidden="true">
+
+    <div class="letter-fullscreen-glow"></div>
+
+    <button
+      class="letter-close"
+      id="loveLetterClose"
+      type="button"
+      aria-label="Close letter">
+      ×
+    </button>
+
+    <div class="full-letter-paper">
+
+      <div class="full-letter-decoration top-decoration">
+        <span>✦</span>
+        <i></i>
+        <span>❤️</span>
+        <i></i>
+        <span>✦</span>
+      </div>
+
+      <div class="full-letter-heart">
+        💌
+      </div>
+
+      <p class="full-letter-eyebrow">
+        A little something from my heart
+      </p>
+
+      <h2>
+        LOVE LETTER<br>
+        <em>FOR MY BANGARAM</em> 💌
+      </h2>
+
+      <div class="full-letter-content">
+
+        <p>
+          My dear cute and sweet chota don kosam ee letter 🥹❤️
+        </p>
+
+        <p>
+          Nenu endhuku pettuna ani anukunevadini...
+          kani netho love lo padaka telisindhe —
+          neekosame pettu ani. 🫣❤️
+        </p>
+
+        <p>
+          Eppudu nannu thidatha vunte entha bagundidho asalu 😂
+        </p>
+
+        <p>
+          Nee chethilo thittinchukovadam lo unde happiness eh vere level 😭❤️
+        </p>
+
+        <p>
+          Nuvvu thidithe kuda cute gane untav enti asalu? 😭😂❤️
+        </p>
+
+        <p>
+          always eppudu nee heart lo ke pona ante poo antav ....
+          mare naku ekkade vundepovali anipisthundhe ...
+          vuntepomantava mare cheppu
+        </p>
+
+      </div>
+
+      <div class="full-letter-signature">
+        — Jey ❤️
+      </div>
+
+      <div class="full-letter-decoration bottom-decoration">
+        <span>✦</span>
+        <i></i>
+        <span>❤️</span>
+        <i></i>
+        <span>✦</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- =======================================================
+         CHAPTER 10 — FINAL PROPOSAL
+    ======================================================== -->
+
+    <section
+      id="chapter10"
+      class="chapter proposal-chapter"
+      data-chapter="10"
+    >
+
+      <div class="proposal-background">
+
+        <div class="proposal-glow glow-one"></div>
+        <div class="proposal-glow glow-two"></div>
+        <div class="proposal-glow glow-three"></div>
+
+      </div>
+
+
+      <div class="proposal-stage">
+
+
+        <!-- SCROLL PROMPT -->
+
+        <div
+          id="proposalIntro"
+          class="proposal-intro"
+        >
+
+          <p class="eyebrow">
+            One last thing...
+          </p>
+        <h1> Now its my turn </h1>
+          <h2 class="proposal-scroll-text">
+            mare ...
+            adhi neku okate cheppale 
+            <span>
+              adhe ...
+              mare ...
+            </span>
+
+            <span>
+              chepesthuna ...
+            </span>
+
+          </h2>
+
+          <p class="proposal-scroll-hint">
+            oka sare kindhake scroll chai
+          </p>
+
+          <div class="proposal-scroll-symbol">
+            ✦
+          </div>
+
+        </div>
+
+
+        <!-- ANIMATED HEART -->
+
+        <div
+          id="proposalHeart"
+          class="proposal-heart"
+          aria-hidden="true"
+        >
+
+          <div class="heart-shape">
+            ❤️
+          </div>
+
+          <div class="heart-ring ring-one"></div>
+          <div class="heart-ring ring-two"></div>
+          <div class="heart-ring ring-three"></div>
+
+        </div>
+
+
+        <!-- PROPOSAL CONTENT -->
+
+        <div
+          id="proposalContent"
+          class="proposal-content"
+        >
+
+          <p class="proposal-kicker">
+            From my heart...
+          </p>
+           
+
+          <h2 class="proposal-title">
+            I LOVE YOU MOUNIKA ❤️
+          </h2>
+
+
+          <div class="proposal-message">
+
+            <p>
+              Nuv lekapothe asalu vundale
+              nuv ante chachey antha istam naku
+              nuv naatho life long vundipo plz 🤌
+            </p>
+
+            <p>
+              Nuvve naku first love and nuvve last kuda
+              nuv thappa inka evaru vadhu naku.
+            </p>
+
+            <p>
+              Nuvvu naa life lo vachaka,
+              chala simple moments kuda special ga
+              anipisthunnayi bngrm.
+            </p>
+
+            <p>
+              Netho maatladina prathi sari,
+              navvina prathi sari,
+              godava padina prathi sari...
+              avi anni naaku chaala special. 🥹❤️
+            </p>
+
+            <p>
+              Nuvvu perfect ani kaadu...
+              naa kosam nuvvu
+              <strong>nuvve ga undadam</strong>
+              naaku nachindhi. ❤️
+            </p>
+
+            <p>
+              Anduke naa heart lo unna maata
+              direct ga chepthunna...
+            </p>
+
+            <p>
+              naa life lo ninnu oka special person ga kaadu,
+              naa pakkana unde person ga choodalani
+              anukuntunna. 🥹❤️
+            </p>
+
+            <p class="proposal-accept-line">
+              plz nannu accept chey 🤌 .
+            </p>
+
+          </div>
+
+
+          <!-- YES / NO BUTTONS -->
+
+          <div
+            class="proposal-buttons"
+            id="proposalButtons"
+          >
+
+            <button
+              id="yesButton"
+              class="proposal-button yes-button"
+              type="button"
+            >
+              YES ❤️
+            </button>
+
+
+            <div class="no-button-area">
+
+              <button
+                id="noButton"
+                class="proposal-button no-button"
+                type="button"
+              >
+                NO 😭
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- YES RESPONSE -->
+
+          <div
+            id="proposalResponse"
+            class="proposal-response"
+            aria-live="polite"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ==================== FINAL GIFT ==================== -->
+<section class="chapter final-gift-chapter" id="chapter11" data-chapter="11">
+
+  <div class="final-gift-container">
+
+    <p class="eyebrow">One last little surprise... 🎁</p>
+
+    <h2 class="final-gift-title">
+      I have something for you...
+    </h2>
+
+    <button class="gift-box-final" id="finalGiftBox" aria-label="Open your final gift">
+
+      <div class="gift-glow"></div>
+
+      <div class="gift-box">
+        <div class="gift-lid">
+          <span class="gift-ribbon-horizontal"></span>
+          <span class="gift-bow bow-left"></span>
+          <span class="gift-bow bow-right"></span>
+          <span class="gift-bow-center"></span>
+        </div>
+
+        <div class="gift-body">
+          <span class="gift-ribbon-vertical"></span>
+          <span class="gift-ribbon-horizontal"></span>
+        </div>
+      </div>
+
+      <span class="gift-open-text">CLICK TO OPEN 🎁</span>
+
+    </button>
+
+    <!-- Gift Reveal -->
+    <div class="final-gift-message" id="finalGiftMessage">
+
+      <div class="gift-message-glow"></div>
+
+      <div class="hub-text">🫂</div>
+
+      <div class="final-message-lines">
+
+        <p> Hub is always important 🤚😁</p>
+        <p> nuv em aina anuko amma nenu always elane vunta netho </p>
+        <p>
+          inka ninnu vadhiledhelee lifelong
+          venatapaduthune vunta 😌
+        </p>
+
+        <p>
+          Any way once again<br>
+          <strong>Happy Birthday 💗</strong>
+        </p>
+
+        <div class="message-divider">&</div>
+
+        <p class="love-final">
+          Love you soooooo much 🥰
+        </p>
+
+      </div>
+
+      <div class="final-hearts">
+        ❤️ &nbsp; 💗 &nbsp; ❤️ &nbsp; 💗 &nbsp; ❤️
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- =========================================================
+       PHOTO VIEWER
+  ========================================================== -->
+
+  <div
+    id="photoViewer"
+    class="viewer"
+    aria-hidden="true"
+  >
+
+    <div class="viewer-backdrop"></div>
+
+    <button
+      id="viewerClose"
+      class="viewer-close"
+      type="button"
+      aria-label="Close photo viewer"
+    >
+      ×
+    </button>
+
+    <button
+      id="viewerPrev"
+      class="viewer-nav prev"
+      type="button"
+      aria-label="Previous photo"
+    >
+      ‹
+    </button>
+
+
+    <div class="viewer-content">
+
+      <div class="viewer-image-wrap">
+
+        <img
+          id="viewerImage"
+          alt=""
+        >
+
+        <div
+          id="viewerPlaceholder"
+          class="viewer-placeholder"
+        >
+          YOUR PHOTO HERE
+        </div>
+
+      </div>
+
+
+      <div
+        id="viewerCaption"
+        class="viewer-caption"
+      ></div>
+
+
+      <div
+        id="viewerCounter"
+        class="viewer-counter"
+      ></div>
+
+    </div>
+
+
+    <button
+      id="viewerNext"
+      class="viewer-nav next"
+      type="button"
+      aria-label="Next photo"
+    >
+      ›
+    </button>
+
+  </div>
+
+
+  <!-- =========================================================
+       CUSTOMIZER
+  ========================================================== -->
+
+  <div
+    id="customizer"
+    class="customizer"
+    aria-hidden="true"
+  >
+
+    <div class="customizer-panel glass">
+
+      <button
+        id="customizerClose"
+        class="panel-close"
+        type="button"
+      >
+        ×
+      </button>
+
+
+      <p class="eyebrow">
+        Private customization panel
+      </p>
+
+
+      <h2>
+        Customize
+        <em>memories</em>
+      </h2>
+
+
+      <p class="panel-note">
+        Nothing here is uploaded anywhere.
+        Selected images are previewed locally
+        in your browser.
+      </p>
+
+
+      <label>
+        Photo slot
+
+        <select id="slotSelect"></select>
+      </label>
+
+
+      <label>
+        Choose image
+
+        <input
+          id="photoUpload"
+          type="file"
+          accept="image/*"
+        >
+      </label>
+
+
+      <label>
+        Caption
+
+        <input
+          id="captionInput"
+          type="text"
+          maxlength="100"
+          placeholder="A memory worth keeping ❤️"
+        >
+      </label>
+
+
+      <button
+        id="saveSlot"
+        class="magic-button small"
+        type="button"
+      >
+        SAVE THIS SLOT
+      </button>
+
+
+      <div
+        id="customPreview"
+        class="custom-preview"
+      ></div>
+
+
+      <p class="panel-note">
+        For permanent use, copy your images into
+        <code>assets/photos/photo01.jpg</code>
+        etc.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       TOAST
+  ========================================================== -->
+
+  <div
+    id="toast"
+    class="toast"
+    role="status"
+  ></div>
+
+
+  <!-- =========================================================
+       AUDIO
+  ========================================================== -->
+
+  <audio
+    id="bgMusic"
+    loop
+    preload="none"
+    src="assets/music/birthday.mp3"
+  ></audio>
+
+  <audio
+    id="soundClick"
+    preload="none"
+    src="assets/sounds/click.mp3"
+  ></audio>
+
+  <audio
+    id="soundWhoosh"
+    preload="none"
+    src="assets/sounds/whoosh.mp3"
+  ></audio>
+
+  <audio
+    id="soundFirework"
+    preload="none"
+    src="assets/sounds/firework.mp3"
+  ></audio>
+
+  <audio
+    id="soundMagic"
+    preload="none"
+    src="assets/sounds/magic.mp3"
+  ></audio>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
